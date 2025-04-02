@@ -7,13 +7,13 @@ public class Vetor {
     private int tamanho;
     private int capacidade;
 
-    // Método de instância da classe Vetor pedindo o valor da capacidade do vetor
+    // Metodo de instância da classe Vetor pedindo o valor da capacidade do vetor
     public Vetor(int capacidade) {
         this.elementos = new Integer[capacidade];
         this.tamanho = 0;
     }
 
-    // Método para adicionar um novo elemento ao final do vetor
+    // Metodo para adicionar um novo elemento ao final do vetor
     public void adicionar(Integer valor) {
         if (this.capacidade == this.tamanho) {
             this.aumentarCapacidade();
@@ -22,7 +22,7 @@ public class Vetor {
         this.tamanho++;
     }
 
-    // Método para adicionar um elemento ao início do vetor
+    // Metodo para adicionar um elemento ao início do vetor
     public void adicionarNoInicio(Integer valor) {
         if (this.capacidade == this.tamanho) {
             this.aumentarCapacidade();
@@ -37,7 +37,7 @@ public class Vetor {
         this.tamanho++;
     }
 
-    // Método para aumentar a capacidade do vetor
+    // Metodo para aumentar a capacidade do vetor
     public void aumentarCapacidade() {
         int novaCapacidade = this.capacidade + (this.capacidade / 2);
         Integer[] novosElementos = new Integer[novaCapacidade];
@@ -49,12 +49,12 @@ public class Vetor {
         this.capacidade = novaCapacidade;
     }
 
-    // Método para ordenar o vetor
+    // Metodo para ordenar o vetor
     public void ordenar() {
         Arrays.sort(this.elementos, 0, this.tamanho);
     }
 
-    // Método para realizar busca binária
+    // Metodo para realizar busca binária
     public void buscaBinaria(Integer valor) {
         int inicio = 0;
         int fim = this.tamanho - 1;
@@ -78,12 +78,12 @@ public class Vetor {
         System.out.println("Elemento não encontrado");
     }
 
-    // Método para exibir os elementos do vetor
+    // Metodo para exibir os elementos do vetor
     public void exibirElementos() {
         System.out.println("Elementos do vetor");
         System.out.println("============");
 
-        for (int i = 0; i < this.tamanho; i++) {
+        for (int i = 0; i < this.tamanho; i++) { //laço de repetição que percorre a lista e mostra cada elemento
             System.out.println(this.elementos[i]);
         }
         System.out.println("============");

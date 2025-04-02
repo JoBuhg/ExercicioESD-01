@@ -16,17 +16,17 @@ public class Lista {
     }
 
     public void adicionarAoInicio(int valor) {
-        if (tamanhoAtual >= tamanhoMaximo) {
+        if (tamanhoAtual >= tamanhoMaximo) { //define se o tamanho máximo foi atingido
             System.out.println("Erro: A lista já atingiu o tamanho máximo.");
             return;
         }
 
         No no = new No(valor);
 
-        if (this.inicio == null) {
+        if (this.inicio == null) { //Se o início for vázio, adiciona um novo nó
             this.inicio = no;
             this.fim = no;
-        } else {
+        } else { //Se não, pega os nós e "passa para trás". Colocando o inicio no novoNo, o próximo como o antigo inicio e novoNo como novo inicio
             this.inicio.anterior = no;
             no.proximo = this.inicio;
             this.inicio = no;
@@ -43,10 +43,10 @@ public class Lista {
 
         No no = new No(valor);
 
-        if (this.fim == null) {
+        if (this.fim == null) { // mesma lógica do nulo anterior
             this.inicio = no;
             this.fim = no;
-        } else {
+        } else {  //Pega o final, passa ele para o nó anterior e adiciona o novoNo ao final da lista
             this.fim.proximo = no;
             no.anterior = this.fim;
             this.fim = no;
@@ -57,10 +57,10 @@ public class Lista {
 
     public void MostrarNos() {
         Iterador iterador = this.getIterador();
-        int count = 0;
-        while (iterador.getAtual() != null) {
+        int count = 0; // utiliza um contador para marcar quantos elementos à na lista
+        while (iterador.getAtual() != null) { //laço de repeição que percorre a lista, enquanto o atual não for nulo
             iterador.display();
-            count++;
+            count++; //adiciona mais um ao contador
         }
         System.out.println("A quantidade de Nós da lista é de " + count);
     }
@@ -112,7 +112,7 @@ public class Lista {
             return;
         }
 
-        // Utilizando o método do Iterador para inserir após o nó atual
+        // Utilizando o metodo do Iterador para inserir após o nó atual
         iterador.inserirAposAtual(valor);
     }
 

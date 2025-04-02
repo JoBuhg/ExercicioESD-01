@@ -57,20 +57,21 @@ public class Iterador {
 
     // Inserir após o atual
     public void inserirAposAtual(int valor) {
-        if (atual == null) {
+        if (atual == null) { //Confirma se tem elementos no nó atual
             System.out.println("Erro: O nó atual é nulo.");
             return;
         }
 
         No novoNo = new No(valor);
 
-        if (atual.proximo != null) {
-            novoNo.proximo = atual.proximo;
-            atual.proximo.anterior = novoNo;
+        if (atual.proximo != null) { //Se o próximo nó do atual é diferente de nulo
+            novoNo.proximo = atual.proximo; //Então coloca o próximo do atual em um novo nó
+            atual.proximo.anterior = novoNo; //E então atualiza o nó anterior para apontar para o "novoNo"
         } else {
             lista.fim = novoNo; // Atualiza o fim da lista
         }
 
+        //Atualiza os nós
         novoNo.anterior = atual;
         atual.proximo = novoNo;
 
@@ -79,15 +80,15 @@ public class Iterador {
 
     // Remover após o atual
     public void removerAposAtual() {
-        if (atual == null || atual.proximo == null) {
+        if (atual == null || atual.proximo == null) { //garante que não está no fim da lista
             System.out.println("Erro: Não há nó para remover após o atual.");
             return;
         }
 
         No remover = atual.proximo;
 
-        if (remover.proximo != null) {
-            remover.proximo.anterior = atual;
+        if (remover.proximo != null) { //Se o próximo nó do atual é diferente de nulo
+            remover.proximo.anterior = atual; //Os nós prox e anterior estão ligados agora ao nó atual, pulando o nó que será removido
         } else {
             lista.fim = atual; // Atualiza o fim da lista
         }
@@ -98,6 +99,7 @@ public class Iterador {
     }
 
     // Inserir antes do atual
+    // Consiste na mesma lógica nos dois acima (Inserir e Remover), agora utilizando o nó anterior.
     public void inserirAntesAtual(int valor) {
         if (atual == null) {
             System.out.println("Erro: O nó atual é nulo.");
